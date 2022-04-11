@@ -21,7 +21,7 @@ const Order = () => (
           <p>Order Placed Successfully.</p>
           <Link to="/products">
             <button type="button" className="shop-more" onClick={onResetCart}>
-              Shop Now
+              Shop More
             </button>
           </Link>
         </div>
