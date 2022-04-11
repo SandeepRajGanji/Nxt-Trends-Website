@@ -14,7 +14,7 @@ const CartSummary = () => (
       )
 
       const onPlaceOrder = () => {
-        console.log('ord')
+        
         placeOrder()
       }
       return (
