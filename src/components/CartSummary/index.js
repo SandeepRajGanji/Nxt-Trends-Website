@@ -5,13 +5,18 @@ import './index.css'
 const CartSummary = () => (
   <CartContext.Consumer>
     {value => {
-      const {cartList} = value
+      const {cartList, placeOrder} = value
       const totalAmountArray = cartList.map(
         eachItem => eachItem.price * eachItem.quantity,
       )
       const totalAmount = totalAmountArray.reduce(
         (sum, eachItem) => sum + eachItem,
       )
+
+      const onPlaceOrder = () => {
+        console.log('ord')
+        placeOrder()
+      }
       return (
         <div className="billing-container">
           <div className="billing-content">
@@ -20,7 +25,7 @@ const CartSummary = () => (
               <h1 className="total-amount">Rs {totalAmount} /-</h1>
             </div>
             <p className="items-in-cart">{cartList.length} Items in cart</p>
-            <button type="button" className="checkout">
+            <button type="button" className="checkout" onClick={onPlaceOrder}>
               Checkout
             </button>
           </div>

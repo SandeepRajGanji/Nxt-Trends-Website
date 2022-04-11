@@ -15,12 +15,25 @@ import './App.css'
 class App extends Component {
   state = {
     cartList: [],
+    isOrderPlaced: false,
   }
 
-  //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
+  placeOrder = () => {
+    this.setState(prevState => ({
+      isOrderPlaced: !prevState.isOrderPlaced,
+    }))
+  }
+
   removeAllCartItems = () => {
     this.setState({
       cartList: [],
+    })
+  }
+
+  resetCart = () => {
+    this.setState({
+      cartList: [],
+      isOrderPlaced: false,
     })
   }
 
@@ -87,7 +100,7 @@ class App extends Component {
   }
 
   render() {
-    const {cartList} = this.state
+    const {cartList, isOrderPlaced} = this.state
 
     return (
       <CartContext.Provider
@@ -98,6 +111,9 @@ class App extends Component {
           removeAllCartItems: this.removeAllCartItems,
           decrementCartItemQuantity: this.decrementCartItemQuantity,
           incrementCartItemQuantity: this.incrementCartItemQuantity,
+          placeOrder: this.placeOrder,
+          isOrderPlaced,
+          resetCart: this.resetCart,
         }}
       >
         <Switch>
