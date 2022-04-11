@@ -122,6 +122,9 @@ class LoginForm extends Component {
           <button type="submit" className="login-button">
             Login
           </button>
+          <p>
+            Username: raja <br /> Password: raja@2021
+          </p>
           {showSubmitError && <p className="error-message">*{errorMsg}</p>}
         </form>
       </div>
